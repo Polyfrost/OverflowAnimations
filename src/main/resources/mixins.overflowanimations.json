@@ -1,0 +1,14 @@
+{
+  "compatibilityLevel": "${java_level}",
+  "minVersion": "0.7",
+  "package": "cc.woverflow.overflowanimations.mixin",
+  "refmap": "mixins.${id}.refmap.json",
+  "priority": 20000,
+  "mixins": [
+    "AnimationHandlerMixin",
+    "LayerArmorBaseMixin_New",
+    "RendererLivingEntityMixin",
+    "RenderItemMixin_Glint"
+  ],
+  "verbose": true
+}
