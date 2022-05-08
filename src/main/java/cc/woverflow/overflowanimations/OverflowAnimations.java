@@ -6,6 +6,9 @@ import cc.woverflow.overflowanimations.config.AnimationsConfig;
 import java.io.File;
 
 //#if MODERN==0
+import club.sk1er.oldanimations.config.OldAnimationsSettings;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ServerData;
 import net.minecraftforge.fml.common.Mod;
 import cc.woverflow.overflowanimations.command.AnimationsCommand;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -58,6 +61,15 @@ public class OverflowAnimations {
         //#endif
         config = new AnimationsConfig();
         config.preload();
+    }
+
+    public static boolean shouldPunch() {
+        return OldAnimationsSettings.punching && (!AnimationsConfig.autoDisablePunching || OverflowAnimations.isNotMinemenClub());
+    }
+
+    private static boolean isNotMinemenClub() {
+        ServerData data = Minecraft.getMinecraft().getCurrentServerData();
+        return data == null || !data.serverIP.endsWith("minemen.club");
     }
 }
 //#endif

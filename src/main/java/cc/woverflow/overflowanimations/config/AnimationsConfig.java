@@ -34,6 +34,14 @@ public class AnimationsConfig extends Vigilant {
     )
     public static boolean thirdPersonItemRendering = true;
 
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Disable 1.7 Punching in MinemenClub",
+            description = "Disable the 1.7 punching feature in MinemenClub which false bans users.",
+            category = "General"
+    )
+    public static boolean autoDisablePunching = true;
+
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);
         initialize();

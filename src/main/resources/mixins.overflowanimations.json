@@ -3,11 +3,14 @@
   "minVersion": "0.7",
   "package": "cc.woverflow.overflowanimations.mixin",
   "refmap": "mixins.${id}.refmap.json",
+  "plugin": "cc.woverflow.overflowanimations.plugin.AnimationsMixinPlugin",
   "priority": 20000,
   "mixins": [
     "AnimationHandlerMixin",
     "LayerArmorBaseMixin_New",
+    "MinecraftMixin",
     "RendererLivingEntityMixin",
+    "RenderItemAccessor",
     "RenderItemMixin_Glint"
   ],
   "verbose": true

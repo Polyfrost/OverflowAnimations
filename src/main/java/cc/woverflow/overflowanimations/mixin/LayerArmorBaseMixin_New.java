@@ -41,10 +41,20 @@ public abstract class LayerArmorBaseMixin_New<T extends ModelBase> implements La
     @ModifyArgs(method = "renderGlint(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/client/model/ModelBase;FFFFFFF)V", at = @At(value = "INVOKE", target = "net/minecraft/client/renderer/GlStateManager.color(FFFF)V", ordinal = 1))
     private void newArmorGlintColor(Args args) {
         if (AnimationsConfig.enchantmentGlintNew) {
-            args.set(0, 0.5608F);
-            args.set(1, 0.3408F);
-            args.set(2, 0.8608F);
-            args.set(3, 1.0F);
+            int rgb = getRGB(args.get(0), args.get(1), args.get(2), args.get(3));
+            if (rgb == -8372020 || rgb == -10473317) {
+                args.set(0, 0.5608F);
+                args.set(1, 0.3408F);
+                args.set(2, 0.8608F);
+                args.set(3, 1.0F);
+            }
         }
+    }
+
+    private int getRGB(int r, int g, int b, int a) {
+        return ((a & 0xFF) << 24) |
+                ((r & 0xFF) << 16) |
+                ((g & 0xFF) << 8)  |
+                ((b & 0xFF));
     }
 }

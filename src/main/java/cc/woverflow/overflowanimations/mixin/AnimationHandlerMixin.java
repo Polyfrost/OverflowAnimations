@@ -1,5 +1,6 @@
 package cc.woverflow.overflowanimations.mixin;
 
+import cc.woverflow.overflowanimations.OverflowAnimations;
 import club.sk1er.oldanimations.AnimationHandler;
 import net.minecraft.client.entity.EntityPlayerSP;
 import org.objectweb.asm.Opcodes;
@@ -33,5 +34,10 @@ public abstract class AnimationHandlerMixin {
             isSwingInProgress = false;
         }
         return max;
+    }
+
+    @Redirect(method = {"renderItemInFirstPerson", "updateSwingProgress"}, at = @At(value = "FIELD", target = "Lclub/sk1er/oldanimations/config/OldAnimationsSettings;punching:Z"))
+    private boolean redirectPunching() {
+        return OverflowAnimations.shouldPunch();
     }
 }
