@@ -1,8 +1,9 @@
 package cc.woverflow.overflowanimations.mixin;
 
-import cc.woverflow.overflowanimations.OverflowAnimations;
+import cc.woverflow.overflowanimations.config.AnimationsConfig;
 import club.sk1er.oldanimations.AnimationHandler;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.item.ItemStack;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -15,6 +16,9 @@ public abstract class AnimationHandlerMixin {
 
     @Shadow private int swingProgressInt;
     @Shadow private boolean isSwingInProgress;
+
+    @Shadow protected abstract boolean doFirstPersonTransform(ItemStack stack);
+
     private boolean shouldSet = false;
     @Redirect(method = "updateSwingProgress", at = @At(value = "FIELD", target = "Lclub/sk1er/oldanimations/AnimationHandler;swingProgressInt:I", ordinal = 2, opcode = Opcodes.PUTFIELD))
     private void redirectSetting1(AnimationHandler instance, int value) {
@@ -36,8 +40,8 @@ public abstract class AnimationHandlerMixin {
         return max;
     }
 
-    @Redirect(method = {"renderItemInFirstPerson", "updateSwingProgress"}, at = @At(value = "FIELD", target = "Lclub/sk1er/oldanimations/config/OldAnimationsSettings;punching:Z"))
-    private boolean redirectPunching() {
-        return OverflowAnimations.shouldPunch();
+    @Redirect(method = "renderItemInFirstPerson", at = @At(value = "INVOKE", target = "Lclub/sk1er/oldanimations/AnimationHandler;doFirstPersonTransform(Lnet/minecraft/item/ItemStack;)Z"))
+    private boolean mixcesDebugMode(AnimationHandler instance, ItemStack stack) {
+        return doFirstPersonTransform(stack) || AnimationsConfig.mixcesDebugMode;
     }
 }

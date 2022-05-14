@@ -9,6 +9,7 @@
     "AnimationHandlerMixin",
     "LayerArmorBaseMixin_New",
     "MinecraftMixin",
+    "PlayerControllerMPMixin",
     "RendererLivingEntityMixin",
     "RenderItemAccessor",
     "RenderItemMixin_Glint"

@@ -12,16 +12,16 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "1.7 Enchantment Glint",
-            description = "Make the enchantment glint like the 1.7 animation.",
+            name = "Cleaner Enchantment Glint",
+            description = "Make the enchantment glint only display up to down.",
             category = "General"
     )
     public static boolean enchantmentGlint = true;
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "1.15+ Enchantment Glint",
-            description = "Make the enchantment glint like the 1.15 animation.\nWorks with the 1.7 enchantment glint feature.",
+            name = "1.15+ Armor Enchantment Glint",
+            description = "Make the armor enchantment glint like the 1.15 animation.\nWorks with the cleaner enchantment glint feature.",
             category = "General"
     )
     public static boolean enchantmentGlintNew = true;
@@ -36,11 +36,19 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Disable 1.7 Punching in MinemenClub",
-            description = "Disable the 1.7 punching feature in MinemenClub which false bans users.",
+            name = "Spiderfrog Old Animations Punching",
+            description = "Enable 1.7 punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.\nRequires Punching on in Sk1er Old Animations.",
             category = "General"
     )
-    public static boolean autoDisablePunching = true;
+    public static boolean spiderfrogPunching = true;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Mixces Debug Mode",
+            description = "yeah.",
+            category = "General"
+    )
+    public static boolean mixcesDebugMode = false;
 
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);
