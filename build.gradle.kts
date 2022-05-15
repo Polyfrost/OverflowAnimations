@@ -57,7 +57,7 @@ val shade: Configuration by configurations.creating {
 
 dependencies {
     if (platform.isLegacyForge) {
-        compileOnly ("gg.essential:essential-$platform:1933") {
+        compileOnly ("gg.essential:essential-$platform:2795") {
             exclude(module = "keventbus")
         }
 

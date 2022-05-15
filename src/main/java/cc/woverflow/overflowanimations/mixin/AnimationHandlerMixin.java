@@ -1,14 +1,20 @@
 package cc.woverflow.overflowanimations.mixin;
 
+import cc.woverflow.overflowanimations.OverflowAnimations;
 import cc.woverflow.overflowanimations.config.AnimationsConfig;
 import club.sk1er.oldanimations.AnimationHandler;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.item.ItemStack;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = AnimationHandler.class, remap = false)
 public abstract class AnimationHandlerMixin {
@@ -16,8 +22,6 @@ public abstract class AnimationHandlerMixin {
 
     @Shadow private int swingProgressInt;
     @Shadow private boolean isSwingInProgress;
-
-    @Shadow protected abstract boolean doFirstPersonTransform(ItemStack stack);
 
     private boolean shouldSet = false;
     @Redirect(method = "updateSwingProgress", at = @At(value = "FIELD", target = "Lclub/sk1er/oldanimations/AnimationHandler;swingProgressInt:I", ordinal = 2, opcode = Opcodes.PUTFIELD))
@@ -40,8 +44,18 @@ public abstract class AnimationHandlerMixin {
         return max;
     }
 
-    @Redirect(method = "renderItemInFirstPerson", at = @At(value = "INVOKE", target = "Lclub/sk1er/oldanimations/AnimationHandler;doFirstPersonTransform(Lnet/minecraft/item/ItemStack;)Z"))
-    private boolean mixcesDebugMode(AnimationHandler instance, ItemStack stack) {
-        return doFirstPersonTransform(stack) || AnimationsConfig.mixcesDebugMode;
+    @Inject(method = "renderItemInFirstPerson", at = @At(value = "INVOKE", target = "Lclub/sk1er/oldanimations/AnimationHandler;doFirstPersonTransform(Lnet/minecraft/item/ItemStack;)Z"))
+    private void setRenderingStack(ItemRenderer renderer, ItemStack stack, float equipProgress, float partialTicks, CallbackInfoReturnable<Boolean> cir) {
+        OverflowAnimations.renderingStack = stack;
+    }
+
+    @Inject(method = "doSwordBlock3rdPersonTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;translate(FFF)V", ordinal = 1, shift = At.Shift.AFTER))
+    private void cancel(CallbackInfo ci) {
+        if (AnimationsConfig.mixcesAnimations) {
+            GlStateManager.rotate(20.0f, 0.0F, 1.0F, 0.0F);
+            GlStateManager.rotate(10, 1.0F, 0.0F, 0.0F);
+            GlStateManager.rotate(0, 0.0F, 0.0F, 1.0F);
+            GlStateManager.translate(0.06, 0.035, -0.05);
+        }
     }
 }

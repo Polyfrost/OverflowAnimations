@@ -5,6 +5,7 @@ import cc.woverflow.onecore.utils.Updater;
 import cc.woverflow.overflowanimations.command.AnimationsCommand;
 import cc.woverflow.overflowanimations.config.AnimationsConfig;
 import club.sk1er.oldanimations.config.OldAnimationsSettings;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -21,6 +22,7 @@ public class OverflowAnimations {
     public static final String NAME = "@NAME@", VER = "@VER@", ID = "@ID@";
     public static File modDir = new File(new File("./W-OVERFLOW"), NAME);
     public static AnimationsConfig config;
+    public static ItemStack renderingStack = null;
 
     //#if MODERN==0
     @Mod.EventHandler

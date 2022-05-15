@@ -14,5 +14,9 @@
     "RenderItemAccessor",
     "RenderItemMixin_Glint"
   ],
-  "verbose": true
+  "verbose": true,
+  "client": [
+    "ForgeHooksClientMixin",
+    "RenderItemMixin"
+  ]
 }

@@ -44,11 +44,11 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Mixces Debug Mode",
-            description = "yeah.",
+            name = "Mixces Animations",
+            description = "Use Mixces' 1st / 3rd person animations instead of Sk1er's.\nMore accurate than Sk1er's animations.",
             category = "General"
     )
-    public static boolean mixcesDebugMode = false;
+    public static boolean mixcesAnimations = true;
 
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);

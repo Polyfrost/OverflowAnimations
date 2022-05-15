@@ -1,8 +1,9 @@
 package cc.woverflow.overflowanimations.command;
 
 //#if MODERN==0
-import cc.woverflow.overflowanimations.OverflowAnimations;
+
 import cc.woverflow.onecore.utils.GuiUtils;
+import cc.woverflow.overflowanimations.OverflowAnimations;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;
 
