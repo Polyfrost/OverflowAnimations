@@ -36,8 +36,8 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Spiderfrog Old Animations Punching",
-            description = "Enable 1.7 item usage whilst punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.\n§eRequires Punch During Usage on in Sk1er Old Animations.",
+            name = "Spiderfrog Old Animations Item Usage Punching",
+            description = "Enable 1.7 item usage whilst punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.\n§eRequires Punch During Usage to be enabled in Sk1er Old Animations.",
             category = "General"
     )
     public static boolean spiderfrogPunching = true;
