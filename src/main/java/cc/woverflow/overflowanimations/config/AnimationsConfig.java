@@ -37,18 +37,26 @@ public class AnimationsConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Spiderfrog Old Animations Punching",
-            description = "Enable 1.7 punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.\nRequires Punching on in Sk1er Old Animations.",
+            description = "Enable 1.7 item usage whilst punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.\n§eRequires Punch During Usage on in Sk1er Old Animations.",
             category = "General"
     )
     public static boolean spiderfrogPunching = true;
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Mixces Animations",
-            description = "Use Mixces' 1st / 3rd person animations instead of Sk1er's.\nMore accurate than Sk1er's animations.",
+            name = "1.7 Item / Block Positions",
+            description = "Uses the 1.7 item positions for all items and blocks in both the first and third person POV.\n§eUse with 1.7 First Person Carpet Position for a true 1.7 experience.",
             category = "General"
     )
     public static boolean mixcesAnimations = true;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "1.7 First Person Carpet Position",
+            description = "Lowers the carpets in the first person POV similar to how it's done in 1.7.\n§eUse with 1.7 Item Positions for a true 1.7 experience.",
+            category = "General"
+    )
+    public static boolean firstPersonCarpetPosition = true;
 
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);
