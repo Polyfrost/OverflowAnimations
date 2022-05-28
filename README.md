@@ -1,8 +1,5 @@
 ## OverflowAnimations
 
-<details>
-  <summary>Bug Fixes</summary>
-  
 # Features
 - **Cleaner Enchantment Glint** - Make the enchantment glint only display up to down. 
 - **1.15+ Armor Enchantment Glint** - Make the armor enchantment glint like the 1.15 animation.
