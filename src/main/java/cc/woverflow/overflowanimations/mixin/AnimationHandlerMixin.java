@@ -49,13 +49,13 @@ public abstract class AnimationHandlerMixin {
         OverflowAnimations.renderingStack = stack;
     }
 
-    @Inject(method = "doSwordBlock3rdPersonTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;translate(FFF)V", ordinal = 1, shift = At.Shift.AFTER))
-    private void cancel(CallbackInfo ci) {
+    @Inject(method = { "doSwordBlock3rdPersonTransform" }, at = { @At("RETURN") })
+    private void cancel(final CallbackInfo ci) {
         if (AnimationsConfig.mixcesAnimations) {
-            GlStateManager.rotate(20.0f, 0.0F, 1.0F, 0.0F);
-            GlStateManager.rotate(10, 1.0F, 0.0F, 0.0F);
-            GlStateManager.rotate(0, 0.0F, 0.0F, 1.0F);
-            GlStateManager.translate(0.06, 0.035, -0.05);
+            GlStateManager.rotate(20, 0.0f, 1.0f, 0.0f);
+            GlStateManager.rotate(10, 1.0f, 0.0f, 0.0f);
+            GlStateManager.rotate(0, 0.0f, 0.0f, 1.0f);
+            GlStateManager.translate(0.067, 0.035, 0.0);
         }
     }
 }
