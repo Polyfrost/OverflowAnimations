@@ -21,7 +21,7 @@ public class AnimationsConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Better 2D Items",
-            description = "Fix a bug with vanilla 1.7 2D Items.",
+            description = "Fix a bug with vanilla 1.7 2D items where the rotation from the player POV is limited.\n§eDisable for a true 1.7 experience.",
             category = "General"
     )
     public static boolean better2DItems = true;
