@@ -7,15 +7,16 @@
   "priority": 20000,
   "client": [
     "AnimationHandlerMixin",
+    "ForgeHooksClientMixin",
+    "ItemRendererMixin",
     "LayerArmorBaseMixin_New",
     "MinecraftMixin",
     "PlayerControllerMPMixin",
+    "RenderEntityItemMixin",
     "RendererLivingEntityMixin",
     "RenderItemAccessor",
-    "RenderItemMixin_Glint",
-    "ForgeHooksClientMixin",
-    "RenderEntityItemMixin",
-    "RenderItemMixin"
+    "RenderItemMixin",
+    "RenderItemMixin_Glint"
   ],
   "verbose": true
 }

@@ -75,13 +75,13 @@ public class MixcesHandler {
                             GlStateManager.rotate(0, 1, 0, 0);
                             GlStateManager.rotate(-10, 0, 0, 1);
                             GlStateManager.scale(1, 1, 1);
-                        } else if (stack.getItem() instanceof ItemFishingRod || stack.getItem() instanceof ItemCarrotOnAStick) {
+                        } else if (stack.getItem().shouldRotateAroundWhenRendering()) {
                             GlStateManager.translate(0.0, -0.052, -0.007);
                             GlStateManager.rotate(-4, 0, 1, 0);
                             GlStateManager.rotate(-4, 1, 0, 0);
                             GlStateManager.rotate(-20, 0, 0, 1);
                             GlStateManager.scale(1.1, 1.1, 1.1);
-                        } else if (stack.getItem() instanceof ItemTool || stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemHoe || stack.getItem().getUnlocalizedName().equals("item.stick") || stack.getItem().getUnlocalizedName().equals("item.blazeRod") || stack.getItem().getUnlocalizedName().equals("item.bone")) {
+                        } else if (stack.getItem().isFull3D()) {
                             GlStateManager.translate(0.01, -0.066, -0.007);
                             GlStateManager.rotate(-4, 0, 1, 0);
                             GlStateManager.rotate(-4, 1, 0, 0);

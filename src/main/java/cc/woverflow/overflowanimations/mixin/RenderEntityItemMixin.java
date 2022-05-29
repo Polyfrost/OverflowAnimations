@@ -22,7 +22,7 @@ public class RenderEntityItemMixin {
         } else {
             GlStateManager.rotate(180.0F - Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
             if (AnimationsConfig.better2DItems) {
-                GlStateManager.rotate(-Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
+                GlStateManager.rotate(Minecraft.getMinecraft().gameSettings.thirdPersonView == 2 ? Minecraft.getMinecraft().getRenderManager().playerViewX : -Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
             }
         }
     }

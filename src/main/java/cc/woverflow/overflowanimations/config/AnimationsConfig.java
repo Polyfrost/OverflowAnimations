@@ -52,6 +52,14 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
+            name = "1.7 Item Switching",
+            description = "Make item switching activate only if the inventory slot has changed.",
+            category = "General"
+    )
+    public static boolean itemSwitch = true;
+
+    @Property(
+            type = PropertyType.SWITCH,
             name = "Spiderfrog Old Animations Item Usage Punching",
             description = "Enable 1.7 item usage whilst punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.\n§eRequires Punch During Usage to be enabled in Sk1er Old Animations.",
             category = "General"
