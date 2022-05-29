@@ -12,6 +12,22 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
+            name = "2D Items",
+            description = "Make items always face the player.",
+            category = "General"
+    )
+    public static boolean items2D = false;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Better 2D Items",
+            description = "Fix a bug with vanilla 1.7 2D Items.",
+            category = "General"
+    )
+    public static boolean better2DItems = true;
+
+    @Property(
+            type = PropertyType.SWITCH,
             name = "Cleaner Enchantment Glint",
             description = "Make the enchantment glint only display up to down.",
             category = "General"
@@ -44,7 +60,7 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "1.7 Item / Block Positions",
+            name = "1.7 Mixces Item / Block Positions",
             description = "Uses the 1.7 item positions for all items and blocks in both the first and third person POV.\n§eUse with 1.7 First Person Carpet Position for a true 1.7 experience.",
             category = "General"
     )
@@ -56,11 +72,13 @@ public class AnimationsConfig extends Vigilant {
             description = "Lowers the carpets in the first person POV similar to how it's done in 1.7.\n§eUse with 1.7 Item Positions for a true 1.7 experience.",
             category = "General"
     )
-    public static boolean firstPersonCarpetPosition = true;
+    public static boolean firstPersonCarpetPosition = false;
 
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);
         initialize();
+        addDependency("firstPersonCarpetPosition", "mixcesAnimations");
+        addDependency("better2DItems", "items2D");
     }
 }
 //#endif

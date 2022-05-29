@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.item.*;
 
 public class MixcesHandler {
-    public static boolean applyMixcesTransformations(ItemCameraTransforms.TransformType type) {
+    public static void applyMixcesTransformations(ItemCameraTransforms.TransformType type) {
         if (AnimationsConfig.mixcesAnimations) {
             ItemStack stack = OverflowAnimations.renderingStack;
             if (stack != null) {
@@ -66,7 +66,7 @@ public class MixcesHandler {
                             GlStateManager.scale(1, 1, 1);
                         } else {
                             OverflowAnimations.renderingStack = null;
-                            return false;
+                            return;
                         }
                     } else {
                         if (stack.getItem() instanceof ItemBow) {
@@ -81,7 +81,7 @@ public class MixcesHandler {
                             GlStateManager.rotate(-4, 1, 0, 0);
                             GlStateManager.rotate(-20, 0, 0, 1);
                             GlStateManager.scale(1.1, 1.1, 1.1);
-                        } else if (stack.getItem() instanceof ItemTool || stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemHoe || stack.getItem().getUnlocalizedName().equals("item.stick") || stack.getItem().getUnlocalizedName().equals("item.blazeRod")) {
+                        } else if (stack.getItem() instanceof ItemTool || stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemHoe || stack.getItem().getUnlocalizedName().equals("item.stick") || stack.getItem().getUnlocalizedName().equals("item.blazeRod") || stack.getItem().getUnlocalizedName().equals("item.bone")) {
                             GlStateManager.translate(0.01, -0.066, -0.007);
                             GlStateManager.rotate(-4, 0, 1, 0);
                             GlStateManager.rotate(-4, 1, 0, 0);
@@ -102,20 +102,15 @@ public class MixcesHandler {
                         } else {
                             //applyThatWeirdTransformation();
                             OverflowAnimations.renderingStack = null;
-                            return false;
+                            return;
                         }
                     }
                 } else {
                     OverflowAnimations.renderingStack = null;
-                    return false;
+                    return;
                 }
                 OverflowAnimations.renderingStack = null;
-                return true;
-            } else {
-                return false;
             }
-        } else {
-            return false;
         }
     }
 

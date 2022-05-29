@@ -1,6 +1,5 @@
 package cc.woverflow.overflowanimations.mixin;
 
-import cc.woverflow.overflowanimations.MixcesHandler;
 import cc.woverflow.overflowanimations.OverflowAnimations;
 import cc.woverflow.overflowanimations.config.AnimationsConfig;
 import net.minecraft.block.*;
@@ -8,12 +7,11 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.IBakedModel;
-import net.minecraft.item.*;
-import org.spongepowered.asm.mixin.Dynamic;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(RenderItem.class)
@@ -57,15 +55,6 @@ public class RenderItemMixin {
                     GlStateManager.scale(1, 1, 1);
                 }
             }
-        }
-    }
-
-
-    @Dynamic("OptiFine")
-    @Redirect(method = "renderItemModelTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms;applyTransform(Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;)V"))
-    private void onApplyTransformations(ItemCameraTransforms instance, ItemCameraTransforms.TransformType type) {
-        if (!MixcesHandler.applyMixcesTransformations(type)) {
-            instance.applyTransform(type);
         }
     }
 }

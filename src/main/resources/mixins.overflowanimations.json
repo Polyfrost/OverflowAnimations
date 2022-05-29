@@ -5,18 +5,17 @@
   "refmap": "mixins.${id}.refmap.json",
   "plugin": "cc.woverflow.overflowanimations.plugin.AnimationsMixinPlugin",
   "priority": 20000,
-  "mixins": [
+  "client": [
     "AnimationHandlerMixin",
     "LayerArmorBaseMixin_New",
     "MinecraftMixin",
     "PlayerControllerMPMixin",
     "RendererLivingEntityMixin",
     "RenderItemAccessor",
-    "RenderItemMixin_Glint"
-  ],
-  "verbose": true,
-  "client": [
+    "RenderItemMixin_Glint",
     "ForgeHooksClientMixin",
+    "RenderEntityItemMixin",
     "RenderItemMixin"
-  ]
+  ],
+  "verbose": true
 }
