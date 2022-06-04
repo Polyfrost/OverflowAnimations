@@ -85,16 +85,25 @@ public class AnimationsConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "1.7 Projectiles",
-            description = "Make projectiles have the correct rotation, fixing the mirror effect on 1.8.",
+            description = "Make projectiles have the correct rotation, fixing mirrored projectiles on 1.8.",
             category = "General"
     )
     public static boolean oldProjectiles = true;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Better 1.7 Projectiles",
+            description = "Fix a bug with 1.7 projectiles fixing mirrored projectiles in third person.",
+            category = "General"
+    )
+    public static boolean oldProjectilesFix = true;
 
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);
         initialize();
         addDependency("firstPersonCarpetPosition", "mixcesAnimations");
         addDependency("better2DItems", "items2D");
+        addDependency("oldProjectilesFix", "oldProjectiles");
     }
 }
 //#endif

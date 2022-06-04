@@ -20,7 +20,7 @@ public abstract class RenderSnowballMixin<T extends Entity> extends Render<T> {
 
     @ModifyArg(method = "doRender", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;rotate(FFFF)V", ordinal = 1), index = 0)
     private float fixRotation(float angle) {
-        return (renderManager.options.thirdPersonView == 2 && AnimationsConfig.oldProjectiles ? -1F : 1F) * angle;
+        return (renderManager.options.thirdPersonView == 2 && AnimationsConfig.oldProjectiles && AnimationsConfig.oldProjectilesFix ? -1F : 1F) * angle;
     }
 
     @Inject(method = "doRender", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;rotate(FFFF)V", ordinal = 1, shift = At.Shift.AFTER))
