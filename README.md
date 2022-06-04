@@ -12,6 +12,10 @@ This mod requires Sk1er's Old Animations Mod to also be present in your mods fol
 # Features
 
   **2D Items** - Make items rotate towards the player, simulating a 2D effect.
+ 
+ **1.7 Item Switching** - Make item switching activate only if the inventory slot has changed. This feature is a fix to the feature of the same name in Sk1er's mod.
+ 
+ **1.7 Projectiles** - Make projectiles have the correct rotation, fixing mirrored projectiles on 1.8.
 
   **Cleaner Enchantment Glint** - Make the enchantment glint only display up to down. 
 
@@ -21,7 +25,7 @@ This mod requires Sk1er's Old Animations Mod to also be present in your mods fol
 
   **Spiderfrog Old Animations Punching** - Enable 1.7 item usage whilst punching like Spiderfrog's Old Animations. Fixes false anti-cheat detections.
 
-  **1.7 Item / Block Positions** - Uses the 1.7 item positions for all items and blocks in both the first and third person POV.
+  **1.7 Mixces Item / Block Positions** - Uses the 1.7 item positions for all items and blocks in both the first and third person POV.
 
-  **1.7 First Person Carpet Position** - Lowers the carpets in the first person POV similar to how it's done in 1.7.
+  **1.7 Mixces First Person Carpet Position** - Lowers the carpets in the first person POV similar to how it's done in 1.7.
   
