@@ -26,6 +26,7 @@ public abstract class RenderSnowballMixin<T extends Entity> extends Render<T> {
     @Inject(method = "doRender", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;rotate(FFFF)V", ordinal = 1, shift = At.Shift.AFTER))
     private void flipProjectile(T entity, double x, double y, double z, float entityYaw, float partialTicks, CallbackInfo ci) {
         if (AnimationsConfig.oldProjectiles) {
+            GlStateManager.translate(-0.07, 0.47, 0.1);
             GlStateManager.rotate(180.0f, 0.0f, 1.0f, 0.0f);
         }
     }
