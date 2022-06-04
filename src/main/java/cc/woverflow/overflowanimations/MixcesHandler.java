@@ -2,6 +2,8 @@ package cc.woverflow.overflowanimations;
 
 import cc.woverflow.overflowanimations.config.AnimationsConfig;
 import net.minecraft.block.*;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.item.*;
@@ -10,6 +12,7 @@ public class MixcesHandler {
     public static void applyMixcesTransformations(ItemCameraTransforms.TransformType type) {
         if (AnimationsConfig.mixcesAnimations) {
             ItemStack stack = OverflowAnimations.renderingStack;
+            final EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
             if (stack != null) {
                 if (type == ItemCameraTransforms.TransformType.THIRD_PERSON) {
                     if (stack.getItem() instanceof ItemBlock) {
@@ -34,6 +37,9 @@ public class MixcesHandler {
                             GlStateManager.rotate(0, 1, 0, 0);
                             GlStateManager.rotate(0, 0, 0, 1);
                             GlStateManager.scale(1, 1, 1);
+                            if (player.isSneaking()) {
+                                GlStateManager.translate(0, -0.35, 0);
+                            }
                         } else if (block instanceof BlockLadder || block instanceof BlockPane || block instanceof BlockRail || block instanceof BlockRailPowered || block instanceof BlockRailDetector || block instanceof BlockVine || block instanceof BlockWeb || block instanceof BlockLever || block instanceof BlockBush || block instanceof BlockTorch || block instanceof BlockTripWireHook) {
                             GlStateManager.translate(0.0985, -0.02, -0.034);
                             GlStateManager.rotate(-13, 0, 1, 0);
@@ -123,4 +129,5 @@ public class MixcesHandler {
         GlStateManager.scale(1, 1, 1);
     }
 }
+
 
