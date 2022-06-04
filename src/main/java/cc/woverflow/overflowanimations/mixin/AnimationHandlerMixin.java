@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import net.minecraft.client.*;
 
 @Mixin(value = AnimationHandler.class, remap = false)
 public abstract class AnimationHandlerMixin {
@@ -51,11 +52,15 @@ public abstract class AnimationHandlerMixin {
 
     @Inject(method = { "doSwordBlock3rdPersonTransform" }, at = { @At("RETURN") })
     private void cancel(final CallbackInfo ci) {
+        final EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
         if (AnimationsConfig.mixcesAnimations) {
             GlStateManager.rotate(20, 0.0f, 1.0f, 0.0f);
             GlStateManager.rotate(10, 1.0f, 0.0f, 0.0f);
             GlStateManager.rotate(0, 0.0f, 0.0f, 1.0f);
-            GlStateManager.translate(0.067, 0.035, 0.0);
+            GlStateManager.translate(0.072, 0.035, 0.0);
+            if (player.isSneaking()) {
+                GlStateManager.translate(-0.033, -0.0035, 0.05);
+            }
         }
     }
 }
