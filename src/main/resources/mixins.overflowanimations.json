@@ -16,7 +16,8 @@
     "RendererLivingEntityMixin",
     "RenderItemAccessor",
     "RenderItemMixin",
-    "RenderItemMixin_Glint"
+    "RenderItemMixin_Glint",
+    "RenderSnowballMixin"
   ],
   "verbose": true
 }

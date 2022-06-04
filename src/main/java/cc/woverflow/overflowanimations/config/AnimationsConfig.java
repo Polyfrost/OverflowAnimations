@@ -76,11 +76,19 @@ public class AnimationsConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "1.7 First Person Carpet Position",
+            name = "1.7 Mixces First Person Carpet Position",
             description = "Lowers the carpets in the first person POV similar to how it's done in 1.7.\n§eUse with 1.7 Item Positions for a true 1.7 experience.",
             category = "General"
     )
     public static boolean firstPersonCarpetPosition = false;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "1.7 Projectiles",
+            description = "Make projectiles have the correct rotation, fixing the mirror effect on 1.8.",
+            category = "General"
+    )
+    public static boolean oldProjectiles = true;
 
     public AnimationsConfig() {
         super(new File(OverflowAnimations.modDir, OverflowAnimations.ID + ".toml"), OverflowAnimations.NAME);
