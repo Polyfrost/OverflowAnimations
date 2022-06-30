@@ -34,8 +34,8 @@ loom.noServerRunConfigs()
 loom {
     if (project.platform.isLegacyForge) {
         launchConfigs.named("client") {
-            arg("--tweakClass", "cc.woverflow.onecore.tweaker.OneCoreTweaker")
-            property("onecore.mixin", "mixins.${mod_id}.json")
+            arg("--tweakClass", "cc.polyfrost.oneconfigwrapper.OneConfigWrapper")
+            arg("--mixin", "mixins.${mod_id}.json")
             property("mixin.debug.export", "true")
         }
     }
@@ -48,7 +48,7 @@ loom {
 }
 
 repositories {
-    maven("https://repo.woverflow.cc/")
+    maven("https://repo.polyfrost.cc/releases")
 }
 
 val shade: Configuration by configurations.creating {
@@ -56,21 +56,9 @@ val shade: Configuration by configurations.creating {
 }
 
 dependencies {
-    if (platform.isLegacyForge) {
-        compileOnly ("gg.essential:essential-$platform:2795") {
-            exclude(module = "keventbus")
-        }
-
-        modCompileOnly(rootProject.files("libs/oam.jar"))
-        shade("cc.woverflow:onecore-tweaker:1.3.0")
-    }
-    val onecore = "cc.woverflow:onecore:1.3.4"
-    if (platform.isLegacyForge) {
-        compileOnly(onecore)
-    } else {
-        modImplementation(onecore)
-    }
-    compileOnly ("org.spongepowered:mixin:0.8.5-SNAPSHOT")
+    modCompileOnly(rootProject.files("libs/oam.jar"))
+    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.1.0-alpha+")
+    shade("cc.polyfrost:oneconfig-wrapper-1.8.9-forge:1.0.0-alpha6")
 }
 
 tasks.processResources {
@@ -133,7 +121,8 @@ tasks {
             attributes(mapOf(
                 "ModSide" to "CLIENT",
                 "TweakOrder" to "0",
-                "TweakClass" to "cc.woverflow.onecore.tweaker.OneCoreTweaker",
+                "MixinConfigs" to "mixins.${mod_id}.json",
+                "TweakClass" to "cc.polyfrost.oneconfigwrapper.OneConfigWrapper",
                 "ForceLoadAsMod" to true
             ))
         }

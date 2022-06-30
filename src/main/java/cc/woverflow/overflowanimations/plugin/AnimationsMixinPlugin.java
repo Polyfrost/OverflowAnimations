@@ -1,7 +1,7 @@
 package cc.woverflow.overflowanimations.plugin;
 
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.*;
+import org.spongepowered.asm.lib.Opcodes;
+import org.spongepowered.asm.lib.tree.*;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
