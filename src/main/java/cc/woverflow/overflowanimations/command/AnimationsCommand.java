@@ -1,20 +1,14 @@
 package cc.woverflow.overflowanimations.command;
 
-//#if MODERN==0
-
-import cc.woverflow.onecore.utils.GuiUtils;
+import cc.polyfrost.oneconfig.utils.commands.annotations.Command;
+import cc.polyfrost.oneconfig.utils.commands.annotations.Main;
 import cc.woverflow.overflowanimations.OverflowAnimations;
-import gg.essential.api.commands.Command;
-import gg.essential.api.commands.DefaultHandler;
 
-public class AnimationsCommand extends Command {
-    public AnimationsCommand() {
-        super(OverflowAnimations.ID, true);
-    }
+@Command(value = OverflowAnimations.ID, description = "Open the Overflow Animations GUI")
+public class AnimationsCommand {
 
-    @DefaultHandler
-    public void handle() {
-        GuiUtils.openScreen(OverflowAnimations.config);
+    @Main
+    public static void handle() {
+        OverflowAnimations.config.openGui();
     }
 }
-//#endif
