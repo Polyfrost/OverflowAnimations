@@ -21,7 +21,7 @@ public class RenderItemMixin {
     private void setRenderingStack(ItemStack stack, IBakedModel model, ItemCameraTransforms.TransformType cameraTransformType, CallbackInfo ci) {
         if (cameraTransformType == ItemCameraTransforms.TransformType.THIRD_PERSON) {
             OverflowAnimations.renderingStack = stack;
-        } else if (AnimationsConfig.mixcesAnimations && stack.getItem() != null) {
+        } else if (AnimationsConfig.mixcesAnimations && stack.getItem() != null && !model.isBuiltInRenderer()) {
             GlStateManager.translate(-0.01, 0.002, 0.0005);
             GlStateManager.rotate(0, 0, 1, 0);
             GlStateManager.rotate(0, 1, 0, 0);
