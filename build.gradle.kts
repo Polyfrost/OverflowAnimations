@@ -55,8 +55,8 @@ val shade: Configuration by configurations.creating {
 }
 
 dependencies {
-    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.1.0-alpha50")
-    shade("cc.polyfrost:oneconfig-wrapper-1.8.9-forge:1.0.0-alpha6")
+    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.1.0-alpha+")
+    shade("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-alpha+")
     modCompileOnly(rootProject.files("libs/oam.jar"))
 }
 

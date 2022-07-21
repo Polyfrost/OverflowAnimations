@@ -19,7 +19,6 @@ import java.io.File;
 //#endif
 public class OverflowAnimations {
     public static final String NAME = "@NAME@", VER = "@VER@", ID = "@ID@";
-    public static File modDir = new File(new File("./W-OVERFLOW"), NAME);
     public static AnimationsConfig config;
     public static ItemStack renderingStack = null;
 

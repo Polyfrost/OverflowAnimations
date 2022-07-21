@@ -20,10 +20,10 @@ public class AnimationsConfig extends Config {
     public static boolean items2D = false;
 
     @Checkbox(
-            name = "Better 2D Items Fix",
+            name = "Microextent 2D Sprites",
             subcategory = "2D Items"
     )
-    public static boolean better2DItems = true;
+    public static boolean itemSprites = true;
 
     @Switch(
             name = "Cleaner Enchantment Glint",
@@ -74,17 +74,17 @@ public class AnimationsConfig extends Config {
     public static boolean oldProjectiles = true;
 
     @Checkbox(
-            name = "Better 1.7 Projectiles",
+            name = "Microextent Projectile Sprites",
             subcategory = "1.7 Animations"
     )
-    public static boolean oldProjectilesFix = true;
+    public static boolean projectileSprites = true;
 
     public AnimationsConfig() {
-        super(new Mod(OverflowAnimations.NAME, ModType.PVP, new VigilanceMigrator(new File(OverflowAnimations.modDir, OverflowAnimations.NAME + ".toml").getPath())), OverflowAnimations.NAME + ".json");
+        super(new Mod(OverflowAnimations.NAME, ModType.PVP, new VigilanceMigrator(new File(new File(new File("./W-OVERFLOW"), OverflowAnimations.NAME), OverflowAnimations.NAME + ".toml").getPath())), OverflowAnimations.NAME + ".json");
         initialize();
         addDependency("firstPersonCarpetPosition", "mixcesAnimations");
-        addDependency("better2DItems", "items2D");
-        addDependency("oldProjectilesFix", "oldProjectiles");
+        addDependency("itemSprites", "items2D");
+        addDependency("projectileSprites", "oldProjectiles");
     }
 }
 //#endif
