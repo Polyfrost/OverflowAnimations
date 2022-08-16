@@ -31,4 +31,4 @@ This mod requires Sk1er's Old Animations Mod to also be present in your mods fol
   
 # Licensing
 
-There is currently no licensing on the code found in this repository. Hence, it falls under All Rights Reserved. Code taken from [Sk1er's Old Animations Mod](https://github.com/Sk1erLLC/OldAnimations) is **not** licensed under All Rights Reserved. This code is licensed under version 3 of the LGPL. We are aware of some of the issues with this licensing, and we are working on resolving this. 
+There is currently no licensing on the code found in this repository. Hence, it falls under All Rights Reserved. Linked code from [Sk1er's Old Animations Mod](https://github.com/Sk1erLLC/OldAnimations) is **not** licensed under All Rights Reserved. This code is licensed under version 3 of the LGPL. We are aware of some of the issues with this licensing, and we are working on resolving this. 
